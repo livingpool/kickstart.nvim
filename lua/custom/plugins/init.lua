@@ -4,4 +4,8 @@
 -- See the kickstart.nvim README for more information
 return {
   'ThePrimeagen/vim-be-good',
+  {
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
 }
