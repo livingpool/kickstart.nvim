@@ -571,7 +571,7 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
-        pyright = {},
+        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -579,11 +579,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
         --
-        html = {},
-        css_variables = {},
-        cssls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -795,32 +791,70 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'rose-pine/neovim',
+    'catppuccin/nvim',
     lazy = false, -- Make sure to load this during startup if this is your main colorscheme
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      require('rose-pine').setup {
-        variant = 'auto', -- auto, main, moon, or dawn
-        dark_variant = 'main', -- main, moon, or dawn
-        dim_inactive_windows = false,
-        extend_background_behind_borders = true,
-
-        enable = {
-          terminal = true,
-          legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-          migrations = true, -- Handle deprecated options automatically
+      require('catppuccin').setup {
+        flavour = 'mocha', -- latte, frappe, macchiato, mocha
+        background = { -- :h background
+          light = 'latte',
+          dark = 'mocha',
         },
-
-        styles = {
-          bold = false,
-          italic = false,
-          transparency = true,
+        transparent_background = true, -- disables setting the background color.
+        show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+        term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+        dim_inactive = {
+          enabled = false, -- dims the background color of inactive window
+          shade = 'dark',
+          percentage = 0.15, -- percentage of the shade to apply to the inactive window
+        },
+        no_italic = true, -- Force no italic
+        no_bold = false, -- Force no bold
+        no_underline = false, -- Force no underline
+        styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+          comments = { 'italic' }, -- Change the style of comments
+          conditionals = { 'italic' },
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+          -- miscs = {}, -- Uncomment to turn off hard-coded styles
+        },
+        color_overrides = {
+          mocha = {
+            base = '#000000',
+            mantle = '#000000',
+            crust = '#000000',
+          },
+        },
+        custom_highlights = {},
+        default_integrations = true,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          treesitter = true,
+          notify = false,
+          mini = {
+            enabled = true,
+            indentscope_color = '',
+          },
+          -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       }
-      vim.cmd.colorscheme 'rose-pine'
+
+      -- setup must be called before loading
+      vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -888,6 +922,8 @@ require('lazy').setup({
         'vim',
         'vimdoc',
         'go',
+        'scala',
+        'java',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
