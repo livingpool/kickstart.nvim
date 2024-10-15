@@ -663,6 +663,7 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         go = { 'goimports', 'gofmt' },
+        scala = { 'scalafmt' },
         -- python = { "isort", "black" },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
@@ -803,7 +804,7 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       require('rose-pine').setup {
-        variant = 'auto', -- auto, main, moon, or dawn
+        variant = 'moon', -- auto, main, moon, or dawn
         dark_variant = 'main', -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
