@@ -49,6 +49,7 @@ return {
     metals_config.settings = {
       showImplicitArguments = true,
       excludedPackages = { 'akka.actor.typed.javadsl', 'com.github.swagger.akka.javadsl' },
+      testUserInterface = 'Test Explorer',
     }
 
     -- *READ THIS*
@@ -75,7 +76,7 @@ return {
       -- vim.keymap.set('n', 'gr', vim.lsp.buf.references)
       -- vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol)
       -- vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
-      -- vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run)
+      vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run)
       -- vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help)
       -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
       -- vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
