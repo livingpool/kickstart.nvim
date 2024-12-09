@@ -659,7 +659,6 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         go = { 'goimports', 'gofmt' },
-        scala = { 'scalafmt' },
         -- python = { "isort", "black" },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
@@ -667,6 +666,7 @@ require('lazy').setup({
         javascript = { { 'prettierd', 'prettier' } },
         html = { { 'prettierd', 'prettier' } },
         css = { { 'prettierd', 'prettier' } },
+        scala = { 'scalafmt' },
       },
     },
   },
