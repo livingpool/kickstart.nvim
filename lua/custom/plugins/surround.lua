@@ -1,7 +1,13 @@
--- Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
--- The plugin provides mappings to easily delete, change and add such surroundings in pairs.
--- https://github.com/tpope/vim-surround
+-- Surround selections, stylishly 😎
+-- https://github.com/kylechui/nvim-surround
 
 return {
-  'tpope/vim-surround',
+  'kylechui/nvim-surround',
+  version = '*', -- Use for stability; omit to use `main` branch for the latest features
+  event = 'VeryLazy',
+  config = function()
+    require('nvim-surround').setup {
+      -- Configuration here, or leave empty to use defaults
+    }
+  end,
 }
