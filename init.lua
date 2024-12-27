@@ -572,6 +572,21 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
+        jdtls = {
+          settings = {
+            java = {
+              configuration = {
+                runtimes = {
+                  {
+                    name = 'JavaSE-8',
+                    path = '/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/',
+                    default = true,
+                  },
+                },
+              },
+            },
+          },
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -605,6 +620,7 @@ require('lazy').setup({
       --
       --  You can press `g?` for help in this menu.
       require('mason').setup()
+      require('java').setup()
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
