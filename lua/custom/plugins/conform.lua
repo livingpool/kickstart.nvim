@@ -42,14 +42,18 @@ return { -- Autoformat
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      -- html = { 'prettierd', 'prettier', stop_after_first = true },
-      -- css = { 'prettierd', 'prettier', stop_after_first = true },
-      -- tmpl = { 'prettierd', 'prettier', stop_after_first = true },
-      ['_'] = { 'trim_whitespace' },
+      html = { 'prettierd', 'prettier', stop_after_first = true },
+      css = { 'prettierd', 'prettier', stop_after_first = true },
+      tmpl = { 'prettierd', 'prettier', stop_after_first = true },
     },
     formatters = {
       prettierd = {
-        append_args = { '--tab-width 4' },
+        env = {
+          PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.config/nvim-kickstart/.prettierrc',
+        },
+      },
+      prettier = {
+        append_args = { '--tab-width', '4' },
       },
     },
   },
