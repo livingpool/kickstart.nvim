@@ -629,7 +629,13 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        gopls = {},
+        gopls = {
+          settings = {
+            templateExtensions = {
+              { 'tmpl', 'tpl', 'gotmpl' },
+            },
+          },
+        },
         pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -640,8 +646,13 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-        html = {},
-        css_variables = {},
+        html = {
+          filetypes = { 'template', 'html', 'tmpl', 'templ' },
+        },
+        htmx = {
+          filetypes = { 'template', 'html', 'tmpl', 'templ' },
+        },
+        templ = {},
         cssls = {},
 
         lua_ls = {
@@ -836,6 +847,10 @@ require('lazy').setup({
           italic = false,
           transparency = true,
         },
+        groups = {},
+        palette = {},
+        highlight_groups = {},
+        before_highlight = function(group, highlight, palette) end,
       }
       vim.cmd.colorscheme 'rose-pine'
 
