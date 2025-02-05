@@ -21,7 +21,7 @@ return { -- Autoformat
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = {}
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
@@ -34,8 +34,9 @@ return { -- Autoformat
       }
     end,
     formatters_by_ft = {
+      c = { 'my_formatter' },
+      cpp = { 'my_formatter' },
       lua = { 'stylua' },
-      cpp = { 'clang-format' },
       -- Conform can also run multiple formatters sequentially
       go = { 'goimports', 'gofmt' },
       -- python = { "isort", "black" },
@@ -54,6 +55,10 @@ return { -- Autoformat
       },
       prettier = {
         append_args = { '--tab-width', '4' },
+      },
+      my_formatter = {
+        command = 'clang-format',
+        args = '--style="{BasedOnStyle: llvm, IndentWidth: 4}"',
       },
     },
   },
