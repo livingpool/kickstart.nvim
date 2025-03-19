@@ -50,7 +50,7 @@ return { -- Autoformat
     formatters = {
       prettierd = {
         env = {
-          PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.config/nvim-kickstart/.prettierrc',
+          PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.config/nvim/.prettierrc',
         },
       },
       prettier = {
