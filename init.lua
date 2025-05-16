@@ -587,7 +587,7 @@ require('lazy').setup({
             },
           },
         },
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -620,7 +620,6 @@ require('lazy').setup({
       --
       --  You can press `g?` for help in this menu.
       require('mason').setup()
-      require('java').setup()
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
@@ -676,7 +675,7 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         go = { 'goimports', 'gofmt' },
-        -- python = { "isort", "black" },
+        python = { 'ruff', 'black', stop_after_first = true },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.

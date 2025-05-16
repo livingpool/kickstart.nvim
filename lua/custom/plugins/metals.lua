@@ -1,5 +1,5 @@
 -- nvim-metals is a Lua plugin built to provide a better experience while using Metals, the Scala Language Server, with Neovim's built-in LSP support
--- https://github.com/scalameta/nvim-metals?tab=readme-ov-file
+-- https://github.com/scalameta/nvim-metals
 
 return {
   'scalameta/nvim-metals',
@@ -51,7 +51,7 @@ return {
       showImplicitArguments = true,
       excludedPackages = { 'akka.actor.typed.javadsl', 'com.github.swagger.akka.javadsl' },
       testUserInterface = 'Test Explorer',
-      javaHome = '/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home',
+      -- javaHome = '/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home',
     }
 
     -- *READ THIS*
