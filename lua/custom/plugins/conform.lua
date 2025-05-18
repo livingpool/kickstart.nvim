@@ -37,6 +37,7 @@ return { -- Autoformat
       c = { 'my_formatter' },
       cpp = { 'my_formatter' },
       lua = { 'stylua' },
+      sh = { 'shfmt' },
       -- Conform can also run multiple formatters sequentially
       go = { 'goimports', 'gofmt' },
       -- python = { "isort", "black" },
@@ -54,11 +55,14 @@ return { -- Autoformat
         },
       },
       prettier = {
-        append_args = { '--tab-width', '4' },
+        append_args = { '--tab-width', '2' },
       },
       my_formatter = {
         command = 'clang-format',
-        args = '--style="{BasedOnStyle: llvm, IndentWidth: 4}"',
+        args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, AllowShortFunctionsOnASingleLine: Empty, ColumnLimit: 120}"',
+      },
+      shfmt = {
+        prepend_args = { '-i', '4' },
       },
     },
   },
