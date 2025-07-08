@@ -673,6 +673,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         cpp = { 'clang-format' },
+        sh = { 'shfmt' },
         -- Conform can also run multiple formatters sequentially
         go = { 'goimports', 'gofmt' },
         python = { 'ruff', 'black', stop_after_first = true },
@@ -683,6 +684,12 @@ require('lazy').setup({
         html = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
         scala = { 'scalafmt' },
+        sql = { 'pg_format' },
+      },
+      formatters = {
+        shfmt = {
+          prepend_args = { '-i', '4' },
+        },
       },
     },
   },
